@@ -1,0 +1,43 @@
+package com.example.datastructurepractice.Movezeros;
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+class Result {
+
+    /*
+     * Complete the 'move_func' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. INTEGER_ARRAY arr
+     */
+
+    public static List<Integer> move_func(int n, List<Integer> arr) {
+        int firstZeroPointer = 0;
+        //arr = [1,0,0,2,0]
+        //arr = [0,1,0,2]
+        for(int nonZeroPointer = 0; nonZeroPointer < n; nonZeroPointer++){
+            if(arr.get(nonZeroPointer) != 0){
+                if(nonZeroPointer != firstZeroPointer){
+                    swap(arr, nonZeroPointer, firstZeroPointer);
+                }
+                firstZeroPointer++;
+            }
+        }
+    return arr;
+    }
+    
+    public static void swap(List<Integer> arr, int nonZeroPointer, int firstZeroPointer){
+        int temp = arr.get(nonZeroPointer);
+        arr.set(nonZeroPointer, arr.get(firstZeroPointer));
+        arr.set(firstZeroPointer, temp);
+    }
+
+}
